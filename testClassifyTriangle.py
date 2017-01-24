@@ -1,5 +1,4 @@
 import unittest
-
 def classifyTriangle(a,b,c):
     if a > 0 and b > 0 and c > 0:
         if (abs(a-b) <= c <= a + b):
@@ -15,10 +14,14 @@ def classifyTriangle(a,b,c):
             return "False"
     else:
         return "False"
-
+print ""
+print classifyTriangle(3,4,6)
+print classifyTriangle(8,15,17)
+print classifyTriangle(4,5,6)
+print classifyTriangle(4,4,4)
+print classifyTriangle(3,3,2)
 
 class TestMyFunctions(unittest.TestCase):
-
     def test1(self):
         self.assertEqual(classifyTriangle(1,0,2),"False")
         self.assertEqual(classifyTriangle(2,1,-1),"False")
@@ -37,7 +40,5 @@ class TestMyFunctions(unittest.TestCase):
     def test6(self):
         self.assertEqual(classifyTriangle(2,3,7),"False")
         self.assertEqual(classifyTriangle(5,4,20),"False")   
-     
-
 if __name__ == "__main__":
     unittest.main(exit=False)    
