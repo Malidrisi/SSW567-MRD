@@ -50,7 +50,7 @@ def classifyTriangle(a,b,c):
         return 'NotATriangle'
         
     # now we know that we have a valid triangle 
-    if a == b and b == a:
+    if a == b and b == c:
         return 'Equilateral'
     elif ((a * a) + (b * b)) == (c * c):
         return 'Right'
@@ -77,7 +77,7 @@ class TestTriangles(unittest.TestCase):
         self.assertEqual(classifyTriangle(3,4,5),'Right','3,4,5 is a Right triangle')
         self.assertEqual(classifyTriangle(101,101,101),'Equilateral','101,101,101 is a Equilateral triangle')
         self.assertEqual(classifyTriangle(7,9,13),'Scalene','7,9,13 is a scalene triangle')
-        self.assertEqual(classifyTriangle(2,2,1),'Isoceles','2,2,1 is an isoceles triangle')
+        self.assertEqual(classifyTriangle(2,2,1),'Isosceles','2,2,1 is an Isosceles triangle')
         
     def testClassifyTriangle2(self): 
         # define multiple test sets to test different aspects of the code
@@ -85,7 +85,7 @@ class TestTriangles(unittest.TestCase):
         self.assertNotEqual(classifyTriangle(211,211,211),'Equilateral','211,211,211 is invalid')
         self.assertNotEqual(classifyTriangle(10,10,10),'Isoceles','10,10,10 should be Equilateral')
         self.assertNotEqual(classifyTriangle(35,7,9),'Right','35,7,9 is Not a Triangle')
-        self.assertNotEqual(classifyTriangle(30,15,30),'Scalene','30,15,30 should be Isoceles')
+        self.assertNotEqual(classifyTriangle(1,2,2),'Scalene','1,2,2 should be Isoceles')
         self.assertNotEqual(classifyTriangle(12,16,20),'Isoceles','12,16,20 should be Right')
         
     def testClassifyTriangle3(self): 
@@ -100,6 +100,10 @@ class TestTriangles(unittest.TestCase):
         
 
 if __name__ == '__main__':
+    # examples of running the  code
+    runClassifyTriangle(1,2,3)
+    runClassifyTriangle(1,1,1)
+    runClassifyTriangle(3,4,5)
     
     
     print('Begin UnitTest')
